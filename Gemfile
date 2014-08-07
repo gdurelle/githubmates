@@ -44,3 +44,5 @@ gem 'puma', '~> 2.9.0'
 gem 'pg'
 # foreign keys for AR
 gem "schema_plus"
+
+gem 'slim', "~> 2.0.2"

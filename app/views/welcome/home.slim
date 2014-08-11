@@ -1,3 +1,14 @@
 h1 Welcome#home
 
-p Find me in app/views/welcome/home.html.erb
+p A sample app to geolocate github committers from a given repo.
+
+.panel.panel-default
+  .panel-heading
+    .panel-title Enter a Github's repository name to find.
+  .panel-body
+    = form_for :repository, class: 'form-horizontal' do |f|
+      .form-group
+        = f.label :name, class: 'control-label col-md-1'
+        .col-md-8= f.text_field :name, autofocus: true, aucomplete: 'on', class: 'form-control'
+      = f.submit 'Go!' ,class: 'btn btn-success btn-md'
+  .panel-footer Repository's commiters will be listed and geolocated on a map.

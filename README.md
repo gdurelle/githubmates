@@ -3,6 +3,8 @@
 
 A sample app to geolocate github committers from a given repo.
 
+http://githubmates.herokuapp.com/
+
 ## Goal:
 
 **1-** Geolocate all committers (contributors) from a Github repository.

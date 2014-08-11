@@ -8,7 +8,10 @@ p A sample app to geolocate github committers from a given repo.
   .panel-body
     = form_for :repository, class: 'form-horizontal' do |f|
       .form-group
-        = f.label :name, class: 'control-label col-md-1'
-        .col-md-8= f.text_field :name, autofocus: true, aucomplete: 'on', class: 'form-control'
-      = f.submit 'Go!' ,class: 'btn btn-success btn-md'
+        .col-md-1.col-sm-1= f.label :name
+        .col-md-8.col-sm-8.col-xs-10
+          .input-group
+            .input-group-addon https://github.com/
+            = f.text_field :name, autofocus: true, aucomplete: 'on', class: 'form-control', placeholder: 'gdurelle/githubmates'
+        .col-md-1.col-sm-1= f.submit 'Go!' ,class: 'btn btn-success btn-md'
   .panel-footer Repository's commiters will be listed and geolocated on a map.

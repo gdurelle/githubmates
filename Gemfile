@@ -46,3 +46,4 @@ gem 'pg'
 gem "schema_plus"
 
 gem 'slim', "~> 2.0.2"
+gem 'quiet_assets'

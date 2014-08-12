@@ -38,9 +38,36 @@ gem 'pg'
 gem "schema_plus"
 
 gem 'slim', "~> 2.0.2"
-gem 'quiet_assets'
 
 gem "twitter-bootstrap-rails"
 
 # Speed boost for rails 4 logging and assets. Needed for Heroku.
 gem 'rails_12factor', group: :production
+
+
+group :development do
+  gem 'quiet_assets'
+  gem 'guard', '~> 2.6.1'
+  gem 'guard-spring'
+  gem 'guard-cucumber'
+  gem 'guard-rspec', '~> 4.3.1'
+  # fast console
+  gem 'pry-rails'
+  gem "spring-commands-rspec"
+  gem "spring-commands-cucumber"
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.2'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'zonebie'
+end
+
+group :test do
+  gem 'minitest'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'simplecov', :require => false
+  gem 'cucumber-rails', '~> 1.4.1', :require => false
+end

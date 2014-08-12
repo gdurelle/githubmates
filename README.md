@@ -1,5 +1,7 @@
 # GithubMates
+
 [![Coverage Status](https://coveralls.io/repos/gdurelle/githubmates/badge.png)](https://coveralls.io/r/gdurelle/githubmates)
+
 A sample app to geolocate github committers from a given repo.
 
 http://githubmates.herokuapp.com/

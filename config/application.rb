@@ -24,8 +24,8 @@ module Githubmates
 
     config.generators do |g|
       g.template_engine :slim
-      # g.test_framework :rspec, fixtures: true
-      # g.fixtures_replacement :factory_girl, dir: 'spec/factories'
+      g.test_framework :rspec, fixtures: true
+      g.fixtures_replacement :factory_girl, dir: 'spec/factories'
       g.helper false
       g.view_specs false
     end

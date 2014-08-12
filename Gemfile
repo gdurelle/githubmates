@@ -44,8 +44,6 @@ gem "twitter-bootstrap-rails"
 # Speed boost for rails 4 logging and assets. Needed for Heroku.
 gem 'rails_12factor', group: :production
 
-gem 'coveralls', require: false
-
 group :development do
   gem 'quiet_assets'
   gem 'guard', '~> 2.6.1'

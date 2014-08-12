@@ -1,6 +1,5 @@
 # GithubMates
 
-[![Coverage Status](https://coveralls.io/repos/gdurelle/githubmates/badge.png)](https://coveralls.io/r/gdurelle/githubmates)
 [![Build Status](https://travis-ci.org/gdurelle/githubmates.svg?branch=master)](https://travis-ci.org/gdurelle/githubmates)
 
 A sample app to geolocate github committers from a given repo.

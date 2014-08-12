@@ -37,3 +37,4 @@ log/*.log
 log/
 *.DS_Store
 .keep
+config/database.yml

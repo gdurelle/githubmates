@@ -14,6 +14,7 @@ class RepositoriesController < ApplicationController
       marker.lat user.latitude
       marker.lng user.longitude
       marker.infowindow user.github_name
+      marker.infowindow render_to_string(:partial => "/contributors/info", :locals => { :object => user})
     end
   end
 

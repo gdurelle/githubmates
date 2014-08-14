@@ -1,0 +1,8 @@
+.col-xs-4.col-md-4= image_tag(object.github_avatar_url, width: 64, alt: '')
+.col-xs-8.col-md-8
+  strong= object.github_name
+  br
+  em.text-muted= object.github_login
+  br
+  a href=object.github_url
+    i.fa.fa-github.fa-2x aria-label="Github profile"

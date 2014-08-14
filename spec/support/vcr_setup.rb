@@ -1,5 +1,6 @@
 require 'vcr'
 require 'webmock/rspec'
+require 'geocoder'
 
 # spec/support/vcr_setup.rb
 VCR.configure do |c|

@@ -46,6 +46,8 @@ gem 'rails_12factor', group: :production
 
 gem "github_api"
 
+gem "geocoder", '~> 1.2.4'
+
 group :development do
   gem 'quiet_assets'
   gem 'guard', '~> 2.6.1'
@@ -63,7 +65,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'zonebie'
-  gem 'webmock'
   gem 'vcr', '~> 2.9.2'
 end
 
@@ -73,4 +74,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', :require => false
   gem 'cucumber-rails', '~> 1.4.1', :require => false
+  gem 'webmock'
 end

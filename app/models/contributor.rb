@@ -3,4 +3,7 @@ class Contributor < ActiveRecord::Base
   has_many :repositories, through: :repository_contributors
 
   validates :github_login, uniqueness: true
+
+  geocoded_by :github_location
+  after_validation :geocode
 end

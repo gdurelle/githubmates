@@ -47,6 +47,7 @@ gem 'rails_12factor', group: :production
 gem "github_api"
 
 gem "geocoder", '~> 1.2.4'
+gem 'gmaps4rails'
 
 group :development do
   gem 'quiet_assets'

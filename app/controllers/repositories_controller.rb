@@ -9,7 +9,12 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = Repository.find(params[:id])
+    @repository = Repository.where(id: params[:id]).includes(:contributors).first
+    @hash = Gmaps4rails.build_markers(@repository.contributors.to_a) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.infowindow user.github_name
+    end
   end
 
   private

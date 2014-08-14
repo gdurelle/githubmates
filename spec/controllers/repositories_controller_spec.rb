@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe RepositoriesController, :type => :controller do
-
-  let!(:repository) {FactoryGirl.create :repository, name: 'rails', github_owner: 'rails'}
+  let!(:repository) { FactoryGirl.create :repository, name: 'rails', github_owner: 'rails' }
 
   describe "POST find" do
     context 'with good params' do
@@ -31,7 +30,10 @@ RSpec.describe RepositoriesController, :type => :controller do
   end
 
   describe "GET show" do
-
+    let!(:contributor) { FactoryGirl.create :contributor }
+    before do
+      repository.contributors << contributor
+    end
     it 'render the show template' do
       get :show, id: repository.id
       expect(response).to render_template :show
@@ -39,6 +41,9 @@ RSpec.describe RepositoriesController, :type => :controller do
     it "assigns the repository" do
       get :show, id: repository.id
       expect(assigns[:repository]).not_to be_nil
+    end
+    it "build the Google map markers" do
+      allow(Gmaps4rails).to receive(:build_markers).with([contributor])
     end
   end
 end

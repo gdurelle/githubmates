@@ -90,6 +90,7 @@ GEM
       multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.0)
       oauth2
+    gmaps4rails (2.1.2)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -280,6 +281,7 @@ DEPENDENCIES
   foreman
   geocoder (~> 1.2.4)
   github_api
+  gmaps4rails
   guard (~> 2.6.1)
   guard-cucumber
   guard-rspec (~> 4.3.1)

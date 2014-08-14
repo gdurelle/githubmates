@@ -5,7 +5,9 @@ h1
 
 .lead= @repository.description
 
-
+.row
+  .col-lg-12.col-md12.col-xs-12
+    #map style=("width: 800px; height: 400px;")
 
 h2 Commiters
 table.table
@@ -21,3 +23,25 @@ table.table
           br
           em= contributor.github_login
         td= contributor.github_location
+
+
+javascript:
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+     provider: {
+      disableDefaultUI: true,
+      zoom: 3,
+      zoomControl: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: new google.maps.LatLng(48.858859, 2.3470599)
+     },
+     internal: {
+       id: 'map'
+     }
+   },
+   function(){
+     markers = handler.addMarkers(#{ raw(@hash.to_json) });
+     handler.bounds.extendWith(markers);
+
+   }
+  );

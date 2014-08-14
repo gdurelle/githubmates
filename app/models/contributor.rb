@@ -1,6 +1,7 @@
 require 'geocoder'
 
 class Contributor < ActiveRecord::Base
+  include Geocoder::Model::ActiveRecord
 
   has_many :repository_contributors, class_name: 'RepositoryContributor'
   has_many :repositories, through: :repository_contributors

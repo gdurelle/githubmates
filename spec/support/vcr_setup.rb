@@ -1,6 +1,5 @@
 require 'vcr'
 require 'webmock/rspec'
-require 'geocoder'
 
 # spec/support/vcr_setup.rb
 VCR.configure do |c|
@@ -10,18 +9,3 @@ VCR.configure do |c|
   c.hook_into :webmock
 end
 
-Geocoder.configure(:lookup => :test)
-
-Geocoder::Lookup::Test.set_default_stub(
-  [
-    {
-      'latitude'     => 40.7143528,
-      'longitude'    => -74.0059731,
-      'address'      => 'New York, NY, USA',
-      'state'        => 'New York',
-      'state_code'   => 'NY',
-      'country'      => 'United States',
-      'country_code' => 'US'
-    }
-  ]
-)

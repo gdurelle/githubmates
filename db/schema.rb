@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20140814123826) do
     t.datetime "updated_at"
   end
 
+  create_table "repositories_contributors", force: true do |t|
+    t.integer "repository_id"
+    t.integer "contributor_id"
+    t.index ["contributor_id"], :name => "fk__repositories_contributors_contributor_id"
+    t.index ["repository_id"], :name => "fk__repositories_contributors_repository_id"
+  end
+
   create_table "repository_contributors", force: true do |t|
     t.integer "repository_id"
     t.integer "contributor_id"

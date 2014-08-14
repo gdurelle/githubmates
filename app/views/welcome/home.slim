@@ -6,12 +6,16 @@ p A sample app to geolocate github committers from a given repo.
   .panel-heading
     .panel-title Enter a Github's repository name to find.
   .panel-body
-    = form_for :repository, class: 'form-horizontal' do |f|
+    = form_for :repository, url: find_repositories_path, class: 'form-horizontal' do |f|
       .form-group
-        .col-md-1.col-sm-1= f.label :name
         .col-md-8.col-sm-8.col-xs-10
           .input-group
-            .input-group-addon https://github.com/
-            = f.text_field :name, autofocus: true, aucomplete: 'on', class: 'form-control', placeholder: 'gdurelle/githubmates'
-        .col-md-1.col-sm-1= f.submit 'Go!' ,class: 'btn btn-success btn-md'
+            = f.label :github_owner, class: 'visible-xs hidden-lg'
+            .input-group-addon.hidden-xs https://github.com/
+            = f.text_field :github_owner, autofocus: true, aucomplete: 'on', class: 'form-control col-lg-4 col-md-4 col-xs-6', placeholder: 'gdurelle'
+            = f.label :name, class: 'visible-xs hidden-lg'
+            .input-group-addon.hidden-xs
+              |/
+            = f.text_field :name, autofocus: false, aucomplete: 'on', class: 'form-control col-lg-4 col-md-4 col-xs-6', placeholder: 'githubmates'
+        .col-md-1.col-sm-1= f.submit t(:go) ,class: 'btn btn-success btn-md'
   .panel-footer Repository's commiters will be listed and geolocated on a map.

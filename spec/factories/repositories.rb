@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :repository do
-    github_id "MyString"
-    name "MyString"
-    github_owner "MyString"
-    description "MyText"
-    has_issues false
-    has_wiki false
+    github_id "123456"
+    name "githubmates"
+    github_owner "gdurelle"
+    description "lorem  ipsum dolor sit amet consectur"
+    has_issues true
+    has_wiki true
   end
 end

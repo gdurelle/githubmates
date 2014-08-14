@@ -38,7 +38,7 @@ html lang="#{I18n.locale}"
             h3 Repositories
             ul.nav.nav-list role='navigation'
               li.nav-header Already searched repos
-              li tabindex=0 = link_to "Link 1", "/path1"
+              = render partial: 'repositories/index'
 
       footer.text-center role='contentinfo'
         a href='http://gdurelle.com/' About

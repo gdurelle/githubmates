@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812091730) do
+ActiveRecord::Schema.define(version: 20140812164138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contributors", force: true do |t|
+    t.string   "github_login"
+    t.string   "github_url"
+    t.string   "github_avatar_url"
+    t.string   "gravatar_id"
+    t.string   "github_location"
+    t.string   "github_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "repositories", force: true do |t|
     t.string   "github_id"
@@ -25,6 +36,15 @@ ActiveRecord::Schema.define(version: 20140812091730) do
     t.boolean  "has_wiki"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "repository_contributors", force: true do |t|
+    t.integer "repository_id"
+    t.integer "contributor_id"
+    t.index ["contributor_id"], :name => "fk__repository_contributors_contributor_id"
+    t.index ["repository_id"], :name => "fk__repository_contributors_repository_id"
+    t.foreign_key ["contributor_id"], "contributors", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_repository_contributors_contributor_id"
+    t.foreign_key ["repository_id"], "repositories", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_repository_contributors_repository_id"
   end
 
 end

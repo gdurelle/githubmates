@@ -63,6 +63,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'zonebie'
+  gem 'webmock'
+  gem 'vcr', '~> 2.9.2'
 end
 
 group :test do

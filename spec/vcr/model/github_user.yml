@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/users/gdurelle
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json,application/vnd.github.beta+json;q=0.5,application/json;q=0.1
+      Accept-Charset:
+      - utf-8
+      User-Agent:
+      - Github Ruby Gem 0.11.3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 14 Aug 2014 12:18:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Ratelimit-Reset:
+      - '1408021414'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Last-Modified:
+      - Tue, 12 Aug 2014 11:53:06 GMT
+      Etag:
+      - '"53be79d249b91a5a993d3c3bb816f348"'
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 55A8CC2D:7B5B:3F081AD:53ECA900
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 132026e9262a0093e437f99db5f1e499
+    body:
+      encoding: UTF-8
+      string: '{"login":"gdurelle","id":7200,"avatar_url":"https://avatars.githubusercontent.com/u/7200?v=2","gravatar_id":"68eb543d5b8ffacee7c83a7b1ae1c111","url":"https://api.github.com/users/gdurelle","html_url":"https://github.com/gdurelle","followers_url":"https://api.github.com/users/gdurelle/followers","following_url":"https://api.github.com/users/gdurelle/following{/other_user}","gists_url":"https://api.github.com/users/gdurelle/gists{/gist_id}","starred_url":"https://api.github.com/users/gdurelle/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/gdurelle/subscriptions","organizations_url":"https://api.github.com/users/gdurelle/orgs","repos_url":"https://api.github.com/users/gdurelle/repos","events_url":"https://api.github.com/users/gdurelle/events{/privacy}","received_events_url":"https://api.github.com/users/gdurelle/received_events","type":"User","site_admin":false,"name":"Gregory
+        Durelle","company":"","blog":"http://gdurelle.com","location":"Paris","email":"gregory.durelle@gmail.com","hireable":true,"bio":null,"public_repos":14,"public_gists":0,"followers":6,"following":12,"created_at":"2008-04-14T08:15:42Z","updated_at":"2014-08-12T11:53:06Z"}'
+    http_version: 
+  recorded_at: Thu, 14 Aug 2014 12:18:08 GMT
+recorded_with: VCR 2.9.2

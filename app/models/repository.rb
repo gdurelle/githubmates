@@ -42,9 +42,9 @@ class Repository < ActiveRecord::Base
     end
   end
 
-  def get_user_infos_for(contributor)
-    user = @github.users.get user: contributor.login
-    contributors << Contributor.find_or_initialize_by(github_login: contributor.login) do |contributor|
+  def get_user_infos_for(github_contributor)
+    user = @github.users.get user: github_contributor.login
+    contributors << Contributor.find_or_initialize_by(github_login: github_contributor.login) do |contributor|
       contributor.github_url = user.url
       contributor.github_avatar_url = user.avatar_url
       contributor.gravatar_id = user.gravatar_id

@@ -6,24 +6,25 @@ RSpec.describe RepositoriesController, :type => :controller do
 
   describe "POST find" do
     context 'with good params' do
+      before do
+        allow(Repository).to receive(:find_or_create_with_params) { repository }
+      end
       it "redirects to the repository" do
         post :find, repository: {name: 'rails', github_owner: 'rails'}
         expect(response).to redirect_to repository_path(Repository.last)
       end
-      it "should creates a repo" do
-        expect{
-          post :find, repository: {name: 'rails', github_owner: 'rails'}
-        }.to change(Repository, :count).by(1)
-      end
     end
     context 'with bad params' do
+      before do
+        allow(Repository).to receive(:find_or_create_with_params) { Repository.new }
+      end
       it 'redirects to home' do
-        post :find, repository: {name: '-'}
+        post :find, repository: {name: '-', github_owner: '-'}
         expect(response).to redirect_to root_path
       end
       it 'should not create a repo' do
         expect{
-          post :find, repository: {name: '-'}
+          post :find, repository: {name: '-', github_owner: '-'}
         }.not_to change(Repository, :count)
       end
     end

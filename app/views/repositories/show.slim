@@ -1,16 +1,26 @@
 h1
-  = @repository.name
-  |/
-  = @repository.github_owner
+  = link_to "https://github.com/#{@repository.github_owner}/#{@repository.name}" do
+    i.fa.fa-github
+    |&nbsp;
+    = @repository.github_owner
+    |/
+    = @repository.name
 
 .lead= @repository.description
+p
+  = pluralize(@repository.contributors.size, "contributor")
+  |&nbsp;
+  span.label.label-info= @repository.has_wiki? ? 'Has Wiki' : 'No wiki'
+  |&nbsp;
+  span.label.label-warning= @repository.has_issues? ? 'Issues managed' : 'No issues management'
 
 .row
   .col-lg-12.col-md12.col-xs-12
     #map style=("width: 800px; height: 400px;")
 
 - if @contributors.present?
-  h2 Commiters
+  h2 Other Commiters
+  .lead Commiters listed here could not have been located.
   table.table
     thead
       th

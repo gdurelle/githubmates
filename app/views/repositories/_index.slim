@@ -1,2 +1,6 @@
 -@repositories.each do |repo|
-  li tabindex=0 = link_to "#{repo.github_owner}/#{repo.name}", repo
+  li tabindex=0
+    = link_to repo
+      i.fa.fa-github
+      |&nbsp;
+      = truncate "#{repo.github_owner}/#{repo.name}", length: 28

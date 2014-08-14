@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :repositories, only: :show do
     post :find, on: :collection
+  end
+
+  resources :contributors, only: %w() do
+    patch :refresh_position, on: :member
   end
 
   # Example of regular route:

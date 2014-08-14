@@ -9,20 +9,29 @@ h1
   .col-lg-12.col-md12.col-xs-12
     #map style=("width: 800px; height: 400px;")
 
-h2 Commiters
-table.table
-  thead
-    th
-    th Name
-  tbody
-    - @repository.contributors.each do |contributor|
-      tr
-        td= image_tag(contributor.github_avatar_url, width: 32, alt: '')
-        td
-          strong= contributor.github_name
-          br
-          em= contributor.github_login
-        td= contributor.github_location
+- if @contributors.present?
+  h2 Commiters
+  table.table
+    thead
+      th
+      th Name
+      th Location
+    tbody
+      - @contributors.each do |contributor|
+        tr
+          td= image_tag(contributor.github_avatar_url, width: 32, alt: '')
+          td
+            strong= contributor.github_name
+            br
+            em= contributor.github_login
+          td= contributor.github_location
+          td
+            -if contributor.github_location.present?
+              = button_to refresh_position_contributor_path(contributor, from: @repository.id), class: 'btn btn-default', method: :patch do
+                i.fa.fa-refresh
+                |&nbsp;
+                |Show on Map
+
 
 
 javascript:

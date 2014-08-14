@@ -5,5 +5,13 @@ class Contributor < ActiveRecord::Base
   validates :github_login, uniqueness: true
 
   geocoded_by :github_location
-  after_validation :geocode
+  after_validation :geocode, if: ->(obj){ obj.github_location.present? and obj.github_location_changed? }
+
+  scope :with_coordinates, -> { where("latitude IS NOT NULL AND longitude IS NOT NULL") }
+  scope :without_coordinates, -> { where(latitude: nil, longitude: nil) }
+
+  def refresh_position
+    loc = geocode
+    update_attributes latitude: loc.first, longitude: loc.last
+  end
 end

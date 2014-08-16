@@ -37,8 +37,10 @@ class Repository < ActiveRecord::Base
 
   def get_contributors
     contributors = @github.repos.contributors user: github_owner, repo: name
-    contributors.each do |contributor|
-      get_user_infos_for(contributor)
+    contributors.each_page do |page|
+      page.each do |contributor|
+        get_user_infos_for(contributor)
+      end
     end
   end
 

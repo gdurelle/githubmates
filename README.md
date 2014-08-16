@@ -24,3 +24,8 @@ Each marker will be click-able, to display an info-bubble with user's informatio
 * Capybara
 * VCR
 
+## Additionnal notes
+
+Sadly I can't add a Sidekiq here because it's hosted on Heroku. (And therefore would cost me money).
+
+In the ideal situation you want to add Redis and send Github API requests in background. Also you's want to add a bit of caching for Geocoder requests.

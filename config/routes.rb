@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :repositories, only: :show do
     post :find, on: :collection
+    patch :refresh, on: :member
   end
 
   resources :contributors, only: %w() do

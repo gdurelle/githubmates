@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe RepositoriesController, :type => :controller do
-  let!(:repository) { FactoryGirl.create :repository, name: 'rails', github_owner: 'rails' }
+  let!(:repository) { FactoryGirl.create :repository, github_owner: 'gdurelle', name: 'githubmates' }
 
   describe "POST find" do
     context 'with good params' do
@@ -9,7 +9,7 @@ RSpec.describe RepositoriesController, :type => :controller do
         allow(Repository).to receive(:find_or_create_with_params) { repository }
       end
       it "redirects to the repository" do
-        post :find, repository: {name: 'rails', github_owner: 'rails'}
+        post :find, repository: {name: 'githubmates', github_owner: 'gdurelle'}
         expect(response).to redirect_to repository_path(Repository.last)
       end
     end
@@ -44,6 +44,22 @@ RSpec.describe RepositoriesController, :type => :controller do
     end
     it "build the Google map markers" do
       allow(Gmaps4rails).to receive(:build_markers).with([contributor])
+    end
+  end
+
+  describe "PATCH refresh" do
+    it "calls for github again" do
+      VCR.use_cassette 'controller/refresh' do
+        allow(repository).to receive(:fill_with_github)
+        patch :refresh, id: repository.id
+      end
+    end
+    it "redirects_to" do
+      VCR.use_cassette 'controller/refresh' do
+        allow(repository).to receive(:fill_with_github) {}
+        patch :refresh, id: repository.id
+        expect(response).to redirect_to repository_path(repository.id)
+      end
     end
   end
 end

@@ -16,6 +16,6 @@ class Contributor < ActiveRecord::Base
 
   def refresh_position
     loc = geocode
-    update_attributes latitude: loc.first, longitude: loc.last
+    update_attributes latitude: loc.first, longitude: loc.last if loc
   end
 end

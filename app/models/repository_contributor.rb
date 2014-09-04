@@ -5,6 +5,6 @@ class RepositoryContributor < ActiveRecord::Base
   validate :uniqueness
 
   def uniqueness
-    # TODO:
+    # TODO: check if user already exists in join table.
   end
 end
